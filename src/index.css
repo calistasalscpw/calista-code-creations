@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Professional Portfolio Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
@@ -17,24 +15,41 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Professional tech color palette */
+    --primary: 215 100% 15%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 215 100% 25%;
+    --primary-glow: 215 100% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 100% 15%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 210 40% 96%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 240 100% 95%;
+    --accent-foreground: 215 100% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 215 100% 15%;
+
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215 100% 15%), hsl(215 100% 25%));
+    --gradient-hero: linear-gradient(135deg, hsl(215 100% 15%), hsl(240 100% 20%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 40% 98%));
+
+    /* Professional shadows */
+    --shadow-lg: 0 20px 40px -12px hsl(215 100% 15% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(215 100% 15% / 0.12);
+    --shadow-glow: 0 0 40px hsl(215 100% 35% / 0.3);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 0.5rem;
 
@@ -101,5 +116,52 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Professional button variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground 
+           shadow-lg hover:shadow-glow transform hover:scale-105 
+           transition-all duration-300 font-semibold;
+  }
+
+  .btn-outline-hero {
+    @apply border-2 border-primary text-primary bg-transparent
+           hover:bg-primary hover:text-primary-foreground
+           transition-all duration-300 font-semibold;
+  }
+
+  /* Card animations */
+  .project-card {
+    @apply bg-gradient-to-br from-card to-accent/50 border-border/50
+           shadow-card hover:shadow-lg transform hover:scale-[1.02]
+           transition-all duration-300 backdrop-blur-sm;
+  }
+
+  /* Smooth scroll animations */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .stagger-delay-1 { animation-delay: 0.1s; }
+  .stagger-delay-2 { animation-delay: 0.2s; }
+  .stagger-delay-3 { animation-delay: 0.3s; }
+  .stagger-delay-4 { animation-delay: 0.4s; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
