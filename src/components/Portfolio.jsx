@@ -6,7 +6,7 @@ import {
   EnvironmentOutlined, 
   LinkedinOutlined, 
   DownloadOutlined,
-  ExternalLinkOutlined,
+  LinkOutlined,
   GithubOutlined,
   CalendarOutlined,
   TrophyOutlined,
