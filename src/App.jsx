@@ -1,27 +1,31 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index.jsx";
-import NotFound from "./pages/NotFound";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Layout } from 'antd';
+import Index from './pages/Index';
+import './App.css';
 
-const queryClient = new QueryClient();
+const { Header, Content, Footer } = Layout;
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <Router>
+      <Layout className="layout">
+        <Header style={{ display: 'flex', alignItems: 'center' }}>
+          <div className="logo" />
+        </Header>
+        <Content>
+          <div className="site-layout-content" style={{ background: '#fff' }}>
+            <Routes>
+              <Route path="/" element={<Index />} />
+            </Routes>
+          </div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          Calista Code Creations ©2025
+        </Footer>
+      </Layout>
+    </Router>
+  );
+}
 
 export default App;
