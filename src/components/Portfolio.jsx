@@ -33,13 +33,7 @@ import {
   BookOutlined,
   ToolOutlined,
   GlobalOutlined,
-  CheckCircleOutlined,
-  AwardOutlined,
-  BulbOutlined,
-  DatabaseOutlined,
-  MobileOutlined,
-  DesktopOutlined,
-  CloudOutlined
+  CheckCircleOutlined
 } from '@ant-design/icons';
 
 const { Title, Paragraph, Text } = Typography;
@@ -573,7 +567,7 @@ const Portfolio = () => {
               <Col xs={24} lg={12}>
                 <Card style={cardStyle}>
                   <Title level={4} style={{ color: '#1e293b', marginBottom: '24px' }}>
-                    <AwardOutlined style={{ marginRight: '8px' }} />
+                    <TrophyOutlined style={{ marginRight: '8px' }} />
                     Certifications
                   </Title>
                   <List
